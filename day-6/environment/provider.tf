@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = terraform.workspace=="dev"?"us-east-1":terraform.workspace=="prod"?"us-east-2":"us-west-1"
-  //profile = "dev"
+  //region  = terraform.workspace=="dev"?"us-east-1":terraform.workspace=="prod"?"us-east-2":"us-west-1"
+  region  = terraform.workspace=="dev"?var.region:terraform.workspace=="prod"?var.region:var.region
   profile=terraform.workspace
 }
