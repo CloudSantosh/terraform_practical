@@ -53,6 +53,23 @@ provider "aws" {
 
 ```
 
+### In the ~/.aws/credentials, we need to create profiles of every environment to allow communication aws console via aws-cli in the following way.
+
+```
+[dev]
+aws_access_key_id= <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+aws_secret_access_key= <xxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+
+[prod]
+aws_access_key_id= <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+aws_secret_access_key= <xxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+
+[stage]
+aws_access_key_id= <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+aws_secret_access_key= <xxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+
+```
+
 ### In the terraform.tfvars, we need to provide values for the variables for root modules main.tf 
 ``` 
 # Development Workspace  variables and its default values
@@ -177,10 +194,11 @@ module "k8-server" {
   k8_server_security_group_id = [module.security.security_group_port_30000_id, module.security.security_group_port_22_id]
 }
 ```
-When terraform validate reports no errors, you then need to run init again so that Terraform will configure the modules. Then, we can plan and apply the changes but before that we need to select the workspace before plan and apply the changes. The code for modules and root modules are same but when select the the workspaces running following command, 
+When terraform validate reports no errors, you then need to run init again so that Terraform will configure the modules. Then, we can plan and apply the changes but before that we need to select the workspace before plan and apply the changes. The code for modules and root modules are same but when select the the workspaces running following command,
+``` 
     terraform workspace select <workspace_name>
     i.e. in our example, we have prod, dev and stage as workspace_name
-
+```
 ## Conclusion
 We learned about Terraform workspaces and modules, two methods that help to work with more complex projects. Following an example for creating cloud computing server in the AWS cloud, you saw both methods applied. In essence, workspaces provide namespaces for resource creation with dedicated states.
 
