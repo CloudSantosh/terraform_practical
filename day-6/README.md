@@ -31,7 +31,7 @@ As before, to better understand modules, let’s use them in the very same examp
 <img src="https://github.com/CloudSantosh/terraform_practical/blob/master/day-6/images/3.png" width="600" height="100">
 
 ### Create the modules directories and modules files. 
-<img src="https://github.com/CloudSantosh/terraform_practical/blob/master/day-6/images/2.png" width="600" height="100">
+<img src="https://github.com/CloudSantosh/terraform_practical/blob/master/day-6/images/2.png" width="300" height="100">
 
 
 ### In the provider.tf, we need to provide following configuration 
@@ -183,7 +183,7 @@ When terraform validate reports no errors, you then need to run init again so th
 
 ## Conclusion
 We learned about Terraform workspaces and modules, two methods that help to work with more complex projects. Following an example for creating cloud computing server in the AWS cloud, you saw both methods applied. In essence, workspaces provide namespaces for resource creation with dedicated states.
-<img src="https://github.com/CloudSantosh/terraform_practical/blob/master/day-6/images/1.png" width="600" height="100">
+<img src="https://github.com/CloudSantosh/terraform_practical/blob/master/day-6/images/1.png" width="300" height="100">
 Use them when you want to manage basically the same resource, but with different configuration, such as in a staging, production and development environment. Modules are fully self-contained, grouped resource definitions that represent parts of a complex infrastructure. Use them to separate your projects into logically related parts, such as a module for creating the resources in the environment, one for its nodes, and others. To better understand how workspaces and modules are used, this project also showed an example for seperating development, production and staging resources.
 
 
